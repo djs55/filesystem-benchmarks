@@ -20,9 +20,9 @@ const (
 func main() {
 	fmt.Println("# npx create-react-app => npm start benchmark")
 	if _, err := os.Stat(path.Join(volume, app)); os.IsNotExist(err) {
-		bootstrap()
+		install()
 	}
-	fmt.Println("# app has been bootstrapped")
+	fmt.Println("# app has been installed")
 	fmt.Println("# iteration, time/seconds")
 	for i := 0; i < 5; i++ {
 		fmt.Printf("%d, %f\n", i, measure().Seconds())
@@ -74,9 +74,9 @@ func measure() time.Duration {
 	return time.Duration(0)
 }
 
-func bootstrap() {
-	cmd := exec.Command("npx", "create-react-app", app)
-	cmd.Dir = volume
+func install() {
+	fmt.Println("# copying application to " + volume)
+	cmd := exec.Command("cp", "-R", "/my-app/", path.Join(volume, app))
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
