@@ -1,8 +1,8 @@
 # npm-react-start
 
-A simple filesystem benchmark which initially bootstraps a React app with
-`npx create-react-app` and then runs `npm start`, timing how long it takes
-for the development webserver to start.
+A simple filesystem benchmark which runs `npm start` on an application
+created by `npx create-react-app`, timing how long it takes for the development
+webserver to start.
 
 ## Usage:
 
@@ -13,7 +13,7 @@ docker run -v /Users/djs/workspace:/volume djs55/npm-react-start
 The output is in .csv format:
 ```
 # npx create-react-app => npm start benchmark
-# app has been bootstrapped
+# app has been installed
 # iteration, time/seconds
 #
 # > my-app@0.1.0 start /volume/my-app
